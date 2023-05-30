@@ -1,0 +1,25 @@
+extends layout 
+block content 
+    h1.w3-blue(tyle="text-shadow:2px 2px 0 #444",style="margin-top: 0px;") 
+        b.w3-margin-left Plantas do sistema
+    table.w3-table.w3-hoverable
+        thead
+            tr.w3-blue
+                th ID
+                th Freguesia
+                th Espécie 
+                th Estado 
+                th Número de intervenções
+        each planta in plantas
+            tr
+                td.w3-border
+                    a(href="planta/"+planta._id)=p=planta._id
+                td.w3-border
+                    p=planta.Freguesia
+                td.w3-border
+                     a(href="especie/"+planta["Espécie"]+"/"+planta["Nome Científico"])=planta["Espécie"]
+                td.w3-border
+                    p=planta.Estado
+                td.w3-border
+                    p=planta['Número de intervenções']
+                td.w3-border

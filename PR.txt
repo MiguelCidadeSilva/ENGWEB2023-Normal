@@ -1,0 +1,79 @@
+Como o dataset já segue o formato json array eu apenas tive que alterar o campo "Id" para "_id" e executar o comando mongoimport habitual, com a flag JsonArray ativa, seguindo as etapas do enunciado.
+
+O sistema esta partido em duas pastas, API e interface, para o correr basta entrar em cada pasta e instalar os pacotes do node: correr npm -i
+
+Respostas para as queries:
+
+1.2)
+
+1)
+
+db.plantas.find().count()
+
+R: 29617
+
+2)
+
+db.plantas.find({Freguesia: "São Domingos de Rana"}).count()
+
+R: 5903
+
+3)
+
+db.plantas.distinct("Freguesia").sort()
+
+R:
+[
+  '',
+  'Abóboda',
+  'Alcabideche',
+  'São Domingos de Rana',
+  'U.F. Carcavelos e Parede',
+  'U.F. Cascais e Estoril'
+]
+
+
+4)
+
+db.plantas.aggregate([ { $group: { _id: "$Freguesia", count: { $sum: 1 } } }, { $sort: { count: -1 } }])
+
+R:
+
+[
+  { _id: 'U.F. Cascais e Estoril', count: 12023 },
+  { _id: 'U.F. Carcavelos e Parede', count: 7629 },
+  { _id: 'São Domingos de Rana', count: 5903 },
+  { _id: 'Alcabideche', count: 4034 },
+  { _id: '', count: 26 },
+  { _id: 'Abóboda', count: 2 }
+]
+
+
+5)
+
+db.plantas.aggregate([ { $group: { _id: "$Espécie", count: { $sum: 1 } } }, { $sort: { count: -1 } }])
+[
+  { _id: 'platano', count: 4053 },
+  { _id: 'lodão', count: 2816 },
+  { _id: 'palmeira das canarias', count: 1329 },
+  { _id: 'a identificar', count: 1311 },
+  { _id: 'ameixoeira de jardim', count: 1015 },
+  { _id: 'choupo negro', count: 976 },
+  { _id: 'tipuana', count: 946 },
+  { _id: 'bordo negundo', count: 916 },
+  { _id: 'grevilia', count: 776 },
+  { _id: 'pinheiro manso', count: 751 },
+  { _id: 'melia', count: 715 },
+  { _id: 'platano bastardo', count: 707 },
+  { _id: 'jacaranda', count: 684 },
+  { _id: 'tilia', count: 653 },
+  { _id: 'cipreste', count: 652 },
+  { _id: 'olaia', count: 567 },
+  { _id: 'pinheiro do alepo', count: 559 },
+  { _id: 'pereira de jardim', count: 488 },
+  { _id: 'choupo branco', count: 473 },
+  { _id: 'cevadilha', count: 446 }
+]
+
+
+contem mais entradas

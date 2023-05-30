@@ -1,0 +1,21 @@
+extends layout 
+block content 
+    h1.w3-blue(tyle="text-shadow:2px 2px 0 #444",style="margin-top: 0px;") 
+        b.w3-margin-left="Planta cujo id é "+planta._id 
+    p="ID: "+planta._id
+    p="Número de Registo: "+planta["Número de Registo"]
+    p="Código da Rua: "+planta["Código de rua"]
+    p="Rua: "+planta["Rua"]
+    p="Freguesia: "+planta["Freguesia"]
+    p="Espécie: "+planta["Espécie"]
+    p="Nome Científico: "+planta["Nome Científico"]
+    p="Origem: "+planta["Origem"]
+    p="Data de Plantação: "+planta["Data de Plantação"]
+    p="Estado: "+planta["Estado"]
+    p="Caldeira: "+planta["Caldeira"]
+    p="Tutor: "+planta["Tutor"]
+    p="Implementação: "+planta["Implementação"]
+    p="Gestor: "+planta["Gestor"]
+    p="Data de Actualização: "+planta["Data de actualização"]
+    p="Número de Intervenções: "+planta["Número de intervenções"]
+    a.w3-btn.w3-blue.w3-hover-light-blue(href="/") Voltar à lista de todas as plantas
