@@ -1,6 +1,6 @@
 Como o dataset já segue o formato json array eu apenas tive que alterar o campo "Id" para "_id" e executar o comando mongoimport habitual, com a flag JsonArray ativa, seguindo as etapas do enunciado.
 
-O sistema esta partido em duas pastas, API e interface, para o correr basta entrar em cada pasta e instalar os pacotes do node: correr npm -i
+O sistema esta partido em duas pastas, e1 (api de dados) e e2 (interface), para o correr basta entrar em cada pasta e instalar os pacotes do node: correr npm -i
 
 Respostas para as queries:
 
